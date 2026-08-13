@@ -17,7 +17,7 @@ export const createUserController = async (req, res) => {
         //setting up token
         const token = await user.generateJWT();
 
-        delete user._doc.password;
+        delete user._doc.password;//to not show password hashed on console
 
         res.status(201).json({ user, token });
     } catch (error) {
