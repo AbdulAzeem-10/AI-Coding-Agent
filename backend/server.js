@@ -12,7 +12,12 @@ const port = process.env.PORT || 3000;
 
 
 const server = http.createServer(app);
-const io = new Server(server);
+
+const io = new Server(server,{//fixed cors protocol from frontend to backend allowed to all for only during development 
+cors:{
+    origin:'*'
+}
+});
 
 //middleware to prevent ambigous meddling in realtiime server
 io.use(async (socket, next) => {
@@ -56,6 +61,10 @@ io.use(async (socket, next) => {
 io.on('connection', socket => {
 
     console.log("a user is connected");
+    socket.join(socket.project._id);
+    socket.on('project-message',data=>{
+        socket.broadcast.to(socket.project._id).emit('project-message');
+    })
 
   socket.on('event', data => { /* … */ });
   socket.on('disconnect', () => { /* … */ });
