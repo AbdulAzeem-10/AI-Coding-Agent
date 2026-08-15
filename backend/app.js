@@ -1,10 +1,11 @@
 import express from 'express';
 import morgan from 'morgan';
 import connect from './config/db.js';
-import userRoutes from './routes/user.routes.js';
 import cookieParser from 'cookie-parser';
-import projectRoutes from './routes/project.routes.js';
 import cors from 'cors';//added cors
+import userRoutes from './routes/user.routes.js';
+import projectRoutes from './routes/project.routes.js';
+import aiRoutes from './routes/ai.routes.js';
 
 
 connect();
@@ -21,6 +22,9 @@ app.use('/users', userRoutes);
 //project routes
 app.use('/projects', projectRoutes);
 
+
+//ai router
+app.use("/ai", aiRoutes);
 
 app.get('/', (req, res) => {
     res.send('Hello World!');

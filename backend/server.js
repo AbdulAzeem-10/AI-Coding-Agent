@@ -1,25 +1,24 @@
 import 'dotenv/config';
 import http from 'http';
 import app from './app.js';
-import {Server} from 'socket.io';
-import mongoose from 'mongoose';
+import { Server } from 'socket.io';
 import jwt from 'jsonwebtoken';
+import mongoose from 'mongoose';
 import projectModel from './models/project.model.js';
-
+import { generateResult } from './services/ai.service.js';
 
 const port = process.env.PORT || 3000;
 
 
 
 const server = http.createServer(app);
-
-const io = new Server(server,{//fixed cors protocol from frontend to backend allowed to all for only during development 
-cors:{
-    origin:'*'
-}
+const io = new Server(server, {
+    cors: {
+        origin: '*'
+    }
 });
 
-//middleware to prevent ambigous meddling in realtiime server
+
 io.use(async (socket, next) => {
 
     try {
@@ -54,21 +53,57 @@ io.use(async (socket, next) => {
         next(error)
     }
 
-});
-
+})
 
 
 io.on('connection', socket => {
+    socket.roomId = socket.project._id.toString()
 
-    console.log("a user is connected");
-    socket.join(socket.project._id);
-    socket.on('project-message',data=>{
-        socket.broadcast.to(socket.project._id).emit('project-message');
+
+    console.log('a user connected');
+
+
+
+    socket.join(socket.roomId);
+
+    socket.on('project-message', async data => {
+
+        const message = data.message;
+
+        const aiIsPresentInMessage = message.includes('@ai');
+        socket.broadcast.to(socket.roomId).emit('project-message', data)
+
+        if (aiIsPresentInMessage) {
+
+
+            const prompt = message.replace('@ai', '');
+
+            const result = await generateResult(prompt);
+
+
+            io.to(socket.roomId).emit('project-message', {
+                message: result,
+                sender: {
+                    _id: 'ai',
+                    email: 'AI'
+                }
+            })
+
+
+            return
+        }
+
+
     })
 
-  socket.on('event', data => { /* … */ });
-  socket.on('disconnect', () => { /* … */ });
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+        socket.leave(socket.roomId)
+    });
 });
+
+
+
 
 server.listen(port, () => {
     console.log(`Server is running on port ${port}`);
