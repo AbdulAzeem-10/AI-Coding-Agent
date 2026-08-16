@@ -1,91 +1,93 @@
 ````markdown
 # 🤖 AI Coding Agent
 
-A full-stack AI-powered coding environment that allows developers to authenticate, create and collaborate on projects in real time, generate code using Gemini AI, render AI responses with Markdown and syntax highlighting, and execute generated Node.js applications directly inside the browser using WebContainers.
+A full-stack AI-powered coding environment that allows developers to create projects, collaborate in real time, generate code using Google Gemini, render AI-generated Markdown and code with syntax highlighting, and execute Node.js applications directly inside the browser using WebContainers.
 
-The project was built with a strong focus on **backend architecture, real-time communication, AI integration, browser-based code execution, authentication, API design, and maintainable full-stack architecture**.
+The project focuses on **backend architecture, real-time communication, AI integration, authentication, API design, and browser-based code execution**.
 
 ---
 
-## 🚀 Project Overview
+## 🚀 Overview
 
-The AI Coding Agent combines an AI code-generation backend with a browser-based development environment.
+The AI Coding Agent combines an AI-powered backend with a browser-based development environment.
 
-The application allows a user to:
+Users can:
 
-- Register and authenticate securely.
-- Log in and maintain an authenticated session.
-- Create projects.
-- Retrieve projects.
-- Add users to projects.
-- Collaborate through real-time project rooms.
-- Send messages between connected users.
-- Interact with an AI coding assistant.
-- Generate structured code and project file trees.
-- Render Markdown responses as React components.
-- Syntax-highlight generated code.
-- Execute Node.js applications directly inside the browser.
-- Run generated projects using WebContainers.
+- Register and authenticate
+- Login securely
+- Create projects
+- Retrieve projects
+- Add users to projects
+- Collaborate through real-time project rooms
+- Send real-time messages
+- Interact with an AI coding assistant
+- Generate structured project file trees
+- Render Markdown responses
+- Syntax-highlight generated code
+- Execute Node.js applications inside the browser
+- Run generated projects using WebContainers
 
-The project was built incrementally with a strong emphasis on **debugging real integration problems, separating backend responsibilities, and connecting multiple independent technologies into a single development workflow.**
+The project was developed incrementally with a strong focus on **debugging real-world integration problems and building maintainable full-stack architecture**.
 
 ---
 
 # 🏗️ Architecture
 
 ```text
-                         ┌───────────────────────┐
-                         │       React UI        │
-                         │                       │
-                         │ Home / Login /        │
-                         │ Register / Project    │
-                         └───────────┬───────────┘
-                                     │
-                         HTTP / Axios│
-                                     │
-                                     ▼
-                         ┌───────────────────────┐
-                         │    Express Backend    │
-                         │                       │
-                         │ Controllers           │
-                         │ Routes                │
-                         │ Middleware            │
-                         │ Services              │
-                         └───────┬───────┬───────┘
-                                 │       │
-                    ┌────────────┘       └─────────────┐
-                    ▼                                  ▼
-             ┌─────────────┐                    ┌─────────────┐
-             │   MongoDB   │                    │    Redis    │
-             │             │                    │             │
-             │ Users       │                    │ Caching /   │
-             │ Projects    │                    │ Services    │
-             └─────────────┘                    └─────────────┘
+                    ┌──────────────────────┐
+                    │      React UI        │
+                    │                      │
+                    │ Login                │
+                    │ Register             │
+                    │ Home                 │
+                    │ Project              │
+                    └──────────┬───────────┘
+                               │
+                         Axios / HTTP
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   Express Backend    │
+                    │                      │
+                    │ Routes               │
+                    │ Controllers          │
+                    │ Middleware           │
+                    │ Services             │
+                    └───────┬──────┬───────┘
+                            │      │
+                 ┌──────────┘      └──────────┐
+                 ▼                            ▼
+          ┌──────────────┐             ┌──────────────┐
+          │   MongoDB    │             │    Redis     │
+          │              │             │              │
+          │ Users        │             │ Redis        │
+          │ Projects     │             │ Services     │
+          └──────────────┘             └──────────────┘
 
-                                 │
-                                 ▼
-                         ┌──────────────────┐
-                         │    Socket.IO     │
-                         │                  │
-                         │ Real-time rooms  │
-                         │ Project messages │
-                         └────────┬─────────┘
-                                  │
-                                  ▼
-                         ┌──────────────────┐
-                         │    Gemini AI     │
-                         │                  │
-                         │ Code generation  │
-                         │ Structured JSON  │
-                         └────────┬─────────┘
-                                  │
-                                  ▼
-                         ┌──────────────────┐
-                         │   WebContainers  │
-                         │                  │
-                         │ Browser Node.js  │
-                         │ Runtime          │
-                         └──────────────────┘
+                            │
+                            ▼
+                    ┌──────────────────┐
+                    │    Socket.IO     │
+                    │                  │
+                    │ Project Rooms    │
+                    │ Real-time Chat   │
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │    Gemini AI     │
+                    │                  │
+                    │ Code Generation  │
+                    │ Structured JSON  │
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │   WebContainers  │
+                    │                  │
+                    │ Browser Node.js  │
+                    │ Runtime          │
+                    └──────────────────┘
 ````
 
 ---
@@ -98,7 +100,7 @@ The project was built incrementally with a strong emphasis on **debugging real i
 * Vite
 * React Router
 * Axios
-* Context API
+* React Context API
 * Socket.IO Client
 * WebContainer API
 * Tailwind CSS
@@ -125,7 +127,7 @@ The project was built incrementally with a strong emphasis on **debugging real i
 * Git
 * GitHub
 * Postman
-* Browser WebSocket testing
+* WebSocket testing
 * Nodemon
 
 ---
@@ -136,7 +138,6 @@ The project was built incrementally with a strong emphasis on **debugging real i
 AI-Coding-Agent/
 │
 ├── backend/
-│   │
 │   ├── config/
 │   │   └── db.js
 │   │
@@ -169,7 +170,6 @@ AI-Coding-Agent/
 │   └── .env
 │
 ├── frontend/
-│   │
 │   ├── src/
 │   │   ├── auth/
 │   │   │   └── UserAuth.jsx
@@ -204,9 +204,11 @@ AI-Coding-Agent/
 
 ---
 
-# 🔐 Authentication System
+# 🔐 Authentication
 
-The backend implements authentication using:
+The backend implements JWT-based authentication with protected routes.
+
+### Authentication Features
 
 * User registration
 * User login
@@ -214,9 +216,9 @@ The backend implements authentication using:
 * Protected routes
 * Authentication middleware
 * Profile retrieval
-* Logout functionality
-* Password validation
+* Logout
 * Email validation
+* Password validation
 
 ### Authentication Routes
 
@@ -227,9 +229,9 @@ GET  /users/profile
 GET  /users/logout
 ```
 
-Protected endpoints require authentication using a JWT bearer token.
+Protected endpoints require a valid JWT bearer token.
 
-The frontend uses a centralized Axios configuration and authentication context to manage authenticated requests and user state.
+The frontend uses a centralized Axios configuration together with React Context to manage authentication state.
 
 ---
 
@@ -244,33 +246,28 @@ The backend provides user-management functionality including:
 * Retrieving users
 * Adding users to projects
 
-The `get-all-users` controller was specifically debugged and stabilized during development to ensure reliable user retrieval and correct route integration.
+The `get-all-users` controller was debugged and stabilized during development to ensure reliable user retrieval and route integration.
 
 ---
 
 # 📦 Project Management
 
-The application supports project-based collaboration.
+Projects provide the foundation for collaborative development.
 
-Projects include:
+The backend supports:
 
 * Project creation
 * Project retrieval
-* Get-all-projects functionality
+* Getting all projects
 * Adding users to projects
 * Project ownership/user relationships
 * Duplicate project validation
 * Project-based real-time communication
 
-### Example Project Creation
+### Example
 
-```text
+```http
 POST /projects/create
-```
-
-The endpoint was tested through Postman using:
-
-```text
 Authorization: Bearer <JWT>
 ```
 
@@ -286,93 +283,92 @@ Duplicate project creation was also tested and correctly rejected with a bad-req
 
 # ⚡ Real-Time Communication
 
-Socket.IO was integrated on both the backend and frontend to provide real-time communication.
+Socket.IO was integrated on both the backend and frontend.
 
-The backend creates a Socket.IO server on top of the HTTP server.
-
-Each project gets its own Socket.IO room.
+Each project has its own Socket.IO room, allowing users inside the same project to communicate in real time.
 
 ```text
 User
   ↓
-Authentication
+JWT Authentication
   ↓
-Project ID validation
+Project ID Validation
   ↓
-Project lookup
+Project Lookup
   ↓
-Socket connection
+Socket Connection
   ↓
-Join project room
+Join Project Room
   ↓
-Real-time communication
+Real-Time Communication
 ```
 
-This allows multiple users belonging to the same project to communicate without mixing messages between unrelated projects.
+This prevents messages from unrelated projects from being mixed together.
 
 ---
 
 # 🔌 Socket Authentication
 
-The Socket.IO middleware validates:
+Socket.IO middleware validates:
 
 * JWT authentication
 * Project ID format
 * Project existence
 * Socket connection authorization
 
-Tokens can be received through Socket.IO authentication or authorization headers.
+Authentication information can be passed through Socket.IO authentication data or an authorization header.
 
-Project IDs are validated using Mongoose before database operations are performed.
+Project IDs are validated with Mongoose before database operations are performed.
 
 ---
 
 # 🤖 Gemini AI Integration
 
-The project integrates Google's Gemini API through:
+Google Gemini is integrated through:
 
 ```text
 @google/genai
 ```
 
-The AI service is separated from the controller layer to maintain a clean service-oriented backend architecture.
+The AI functionality follows a layered architecture:
 
 ```text
 AI Route
-   ↓
+    ↓
 AI Controller
-   ↓
+    ↓
 AI Service
-   ↓
-Google Gemini
+    ↓
+Google Gemini API
 ```
 
-The AI service receives a developer prompt and generates structured responses designed for an AI coding environment.
+Keeping AI logic inside a dedicated service separates external API communication from HTTP controller logic.
 
 ---
 
 # 🧠 AI Prompt Engineering
 
-The AI system instruction was designed around production-oriented software development.
+The AI system instruction is designed around production-oriented software development.
 
 The AI is instructed to:
 
 * Write modular code
 * Follow development best practices
+* Break applications into appropriate files
 * Create files when necessary
 * Maintain existing functionality
 * Handle edge cases
 * Handle errors and exceptions
-* Produce scalable code
-* Produce maintainable code
+* Generate scalable code
+* Generate maintainable code
 * Use understandable comments
-* Generate structured project file trees
+* Return structured project information
 
-The expected AI output contains information such as:
+The expected AI output follows a structure similar to:
 
 ```json
 {
-  "text": "...",
+  "text": "Generated project description",
   "fileTree": {},
   "buildCommand": {
     "mainItem": "npm",
@@ -385,141 +381,137 @@ The expected AI output contains information such as:
 }
 ```
 
-This structure allows the frontend to interpret AI-generated projects and execute them through WebContainers.
+This structure allows the frontend to interpret AI-generated projects and eventually execute them through WebContainers.
 
 ---
 
 # 🔄 AI Model Fallback System
 
-A model fallback-priority mechanism was implemented to improve resilience.
+A model fallback-priority system was implemented to improve AI service reliability.
 
-Instead of relying on a single Gemini model, the AI service maintains an ordered list of candidate models.
+Instead of relying entirely on a single Gemini model, the service can attempt models sequentially.
 
 ```text
 Primary Model
-     ↓
-Failure?
-     ↓
+      ↓
+   Failure?
+      ↓
 Fallback Model
-     ↓
-Failure?
-     ↓
-Next Fallback
-     ↓
+      ↓
+   Failure?
+      ↓
+Next Model
+      ↓
 Successful Response
 ```
 
-Each model is attempted sequentially.
+When a model fails:
 
-If a model fails, the service:
+1. The error is captured.
+2. The failed model is recorded.
+3. The next available model is attempted.
+4. The first successful response is returned.
+5. An error is returned only if all configured models fail.
 
-1. Captures the error.
-2. Logs the failed model.
-3. Moves to the next model.
-4. Returns the first successful response.
-5. Throws a final error only when all candidates fail.
-
-This fallback behavior was tested through Postman and successfully produced a response using a fallback model after the primary model failed.
+The fallback behavior was tested through Postman and successfully generated a response using a fallback model.
 
 ---
 
-# 🌐 Browser-Based Node.js Runtime
+# 🌐 WebContainer Integration
 
-One of the core features of the project is the integration of the WebContainer API.
+The frontend integrates WebContainers to provide a browser-based Node.js runtime.
 
-WebContainers provide a browser-based Node.js runtime.
-
-This allows the application to move beyond simply displaying generated code.
+This allows generated applications to move beyond simply displaying code.
 
 The workflow is:
 
 ```text
 User Prompt
-     ↓
+    ↓
 Gemini AI
-     ↓
+    ↓
 Generated File Tree
-     ↓
+    ↓
 Frontend IDE
-     ↓
+    ↓
 WebContainer
-     ↓
+    ↓
 npm install
-     ↓
+    ↓
 Node.js Application
-     ↓
-Run inside Browser
+    ↓
+Browser Execution
 ```
 
-This establishes the foundation for an AI-powered browser IDE where generated applications can be inspected and executed directly from the browser.
+This forms the foundation for an AI-powered browser development environment.
 
 ---
 
-# 📝 Markdown & Code Rendering
+# 📝 Markdown Rendering
 
-The frontend integrates:
+AI responses can contain Markdown and formatted code.
+
+The frontend uses:
 
 ```text
 markdown-to-jsx
 ```
 
-to convert Markdown responses into React components.
+to transform Markdown into React components.
 
-This allows AI-generated responses to be displayed as structured content instead of plain text.
+This allows AI responses to be displayed as structured content instead of plain text.
 
 ---
 
 # 🎨 Syntax Highlighting
 
-The frontend integrates:
+The frontend uses:
 
 ```text
 highlight.js
 ```
 
-for syntax highlighting.
-
-This improves readability of generated programming code by providing language-aware formatting for code blocks.
+for syntax highlighting of generated source code.
 
 The rendering pipeline is:
 
 ```text
 Markdown
-   ↓
+    ↓
 markdown-to-jsx
-   ↓
+    ↓
 React Components
-   ↓
+    ↓
 highlight.js
-   ↓
-Syntax-highlighted Code
+    ↓
+Syntax-Highlighted Code
 ```
 
 ---
 
 # 🔌 Axios Architecture
 
-Axios is centralized through frontend configuration rather than creating independent HTTP clients throughout the application.
+Axios is centralized through frontend configuration rather than creating independent clients throughout the application.
 
-The frontend uses Axios for:
+Axios handles communication for:
 
-* Authentication requests
-* User requests
-* Project requests
-* Backend API communication
+* Authentication
+* Users
+* Projects
+* Backend APIs
 
-Axios integration was also debugged during development, including authentication-related imports and configuration.
+The authentication flow was also debugged and remodeled to ensure the correct Axios configuration and imports were used throughout the frontend.
 
 ---
 
 # 🔄 React State Management
 
-React state management and two-way binding were implemented across the primary application screens:
+React state and two-way binding were implemented across the main screens:
 
-* Login
-* Register
-* Home
-* Project
+* `Login.jsx`
+* `Register.jsx`
+* `Home.jsx`
+* `Project.jsx`
 
 State is used for:
 
@@ -527,33 +519,33 @@ State is used for:
 * User input
 * Authentication state
 * Project information
-* Application interactions
+* UI interactions
 
-The final frontend stabilization included debugging and remodeling state usage across these screens to ensure consistent synchronization between user input and React state.
+The final frontend stabilization included remodeling state usage to ensure consistent synchronization between user input and application state.
 
 ---
 
 # 🧩 React Context
 
-A dedicated user context was implemented to centralize authenticated user state.
-
-This prevents authentication state from being unnecessarily duplicated across individual components.
+A dedicated user context centralizes authenticated user information.
 
 ```text
-User Authentication
-       ↓
+Authentication
+      ↓
 User Context
-       ↓
-Application Components
+      ↓
+React Components
 ```
+
+This avoids unnecessarily duplicating authentication state across individual screens.
 
 ---
 
 # 🛣️ Frontend Routing
 
-React Router is used to separate application screens and navigation.
+React Router manages application navigation.
 
-The application includes routes for:
+Current application screens include:
 
 ```text
 Login
@@ -562,15 +554,15 @@ Home
 Project
 ```
 
-Authentication-related routing is connected to the application's user context and authentication layer.
+Routing is connected to the authentication and user-context architecture.
 
 ---
 
-# 🐛 Major Bugs & Engineering Fixes
+# 🐛 Major Bugs & Fixes
 
-This project was developed through iterative debugging rather than simply assembling libraries.
+This project was built through iterative development and debugging.
 
-Several real integration problems were encountered and resolved.
+Several real integration issues were encountered and resolved.
 
 ---
 
@@ -578,17 +570,13 @@ Several real integration problems were encountered and resolved.
 
 ### Problem
 
-Initially the project attempted to import:
+The initial implementation attempted to import:
 
 ```js
 GoogleGenerativeAI
 ```
 
-from:
-
-```text
-@google/genai
-```
+from `@google/genai`.
 
 This produced:
 
@@ -600,33 +588,23 @@ does not provide an export named 'GoogleGenerativeAI'
 
 ### Fix
 
-Migrated to the correct SDK interface:
+The implementation was migrated to the correct SDK interface:
 
 ```js
 import { GoogleGenAI } from "@google/genai";
-```
 
-and configured the client using:
-
-```js
-new GoogleGenAI({
-    apiKey: process.env.GOOGLE_AI_KEY
+const genAI = new GoogleGenAI({
+  apiKey: process.env.GOOGLE_AI_KEY
 });
 ```
 
 ---
 
-# 2. Gemini Model Compatibility Error
+## 2. Gemini Model Compatibility Error
 
 ### Problem
 
-The initial model:
-
-```text
-gemini-1.5-flash
-```
-
-returned:
+The initial Gemini model returned:
 
 ```text
 404 NOT_FOUND
@@ -636,15 +614,13 @@ models/gemini-1.5-flash is not found
 
 ### Fix
 
-The AI service was remodeled around available Gemini models and a fallback-priority mechanism was implemented.
+The AI service was remodeled around supported Gemini models and a fallback-priority mechanism.
 
-The system now attempts models sequentially instead of depending on a single model.
-
-The fallback behavior was verified successfully through Postman.
+The fallback system was then tested successfully through Postman.
 
 ---
 
-# 3. ESM Module Resolution Error
+## 3. ESM Module Resolution Error
 
 ### Problem
 
@@ -654,33 +630,29 @@ The backend produced:
 ERR_MODULE_NOT_FOUND
 ```
 
-for:
-
-```text
-services/ai.service
-```
+when importing the AI service.
 
 ### Cause
 
-The backend uses ES modules, which requires explicit file extensions for local imports.
+The backend uses ES modules, requiring explicit file extensions for local imports.
 
 ### Fix
 
-Changed:
+The import was changed from:
 
 ```js
-import { generateResult } from '../services/ai.service';
+import { generateResult } from "../services/ai.service";
 ```
 
 to:
 
 ```js
-import { generateResult } from '../services/ai.service.js';
+import { generateResult } from "../services/ai.service.js";
 ```
 
 ---
 
-# 4. Socket.IO Initialization Error
+## 4. Socket.IO Initialization Error
 
 ### Problem
 
@@ -693,25 +665,25 @@ Cannot access 'io' before initialization
 
 ### Cause
 
-Socket middleware was being registered before the Socket.IO server instance had been initialized.
+Socket middleware was registered before the Socket.IO instance was initialized.
 
 ### Fix
 
-The Socket.IO server was initialized before middleware registration:
+The initialization order was corrected:
 
 ```text
 HTTP Server
-   ↓
+    ↓
 Socket.IO Server
-   ↓
+    ↓
 Socket Middleware
-   ↓
+    ↓
 Connection Handler
 ```
 
 ---
 
-# 5. Invalid Socket Project ID
+## 5. Invalid Socket Project ID
 
 ### Problem
 
@@ -723,21 +695,19 @@ Error: Invalid projectId
 
 ### Fix
 
-The Socket.IO middleware validates the project ID using Mongoose:
+The Socket.IO middleware validates project IDs using:
 
 ```js
 mongoose.Types.ObjectId.isValid(projectId)
 ```
 
-before allowing the connection to proceed.
-
-This prevents malformed project IDs from reaching the database layer.
+before querying MongoDB.
 
 ---
 
-# 6. Redis Connection Errors
+## 6. Redis Connection Errors
 
-During Redis integration, connection errors such as:
+Redis initially produced errors including:
 
 ```text
 ECONNRESET
@@ -749,45 +719,43 @@ and:
 getaddrinfo ENOTFOUND
 ```
 
-were encountered.
-
-The Redis connection configuration was debugged and verified until the application successfully reported:
+The Redis configuration was debugged and eventually the application successfully established a Redis connection.
 
 ```text
 Redis connected
 ```
 
-This highlighted the importance of handling external service connectivity independently from the core Express application.
+This demonstrated the importance of isolating external-service connectivity problems from the main Express application.
 
 ---
 
-# 7. CORS Issues
+## 7. CORS Issues
 
-Frontend-to-backend communication initially required CORS configuration adjustments.
+Frontend-to-backend communication required CORS configuration.
 
-The Express application and Socket.IO server were configured to allow frontend communication during development.
+Both Express and Socket.IO were configured to allow frontend communication during development.
 
-Socket.IO was explicitly configured with development CORS support:
+Socket.IO was configured with:
 
 ```js
 cors: {
-    origin: '*'
+  origin: "*"
 }
 ```
 
-This was treated as a development configuration rather than a production security policy.
+This is intended for development and should be restricted to trusted frontend origins in production.
 
 ---
 
-# 8. Axios Authentication Issues
+## 8. Axios Authentication Issues
 
-Frontend authentication encountered Axios import/configuration issues.
+Frontend authentication encountered Axios configuration and import issues.
 
-The authentication layer was remodeled and Axios configuration was centralized to provide more reliable communication between the React frontend and Express backend.
+The authentication layer was remodeled and Axios configuration was centralized to provide consistent communication between the React frontend and Express backend.
 
 ---
 
-# 9. React State & Two-Way Binding Issues
+## 9. React State & Two-Way Binding Issues
 
 State handling across:
 
@@ -800,25 +768,19 @@ Project.jsx
 
 was debugged and remodeled.
 
-The final implementation ensures user input is synchronized with React state and that state changes propagate correctly through the relevant components.
+The final implementation ensures user input remains synchronized with React state.
 
 ---
 
-# 10. Final ESM Import Fix
+## 10. Final Frontend Import Fix
 
-The frontend also required a final JavaScript import correction in:
-
-```text
-main.jsx
-```
-
-This was resolved during the final frontend stabilization pass.
+A final JavaScript import issue in `main.jsx` was also corrected during the frontend stabilization phase.
 
 ---
 
 # 🧪 API Testing
 
-The backend was actively tested using Postman during development.
+The backend was actively tested using Postman.
 
 ## Authentication
 
@@ -843,31 +805,15 @@ POST /projects/add-user
 GET /ai/get-result
 ```
 
-AI generation was tested successfully.
+AI generation was successfully tested.
 
-The model fallback mechanism was also tested and successfully returned a response through the fallback model.
-
-### Project Creation Test
-
-Project creation was tested using:
-
-```text
-Authorization: Bearer <JWT>
-```
-
-Successful creation returned:
-
-```text
-201 Created
-```
-
-Duplicate project creation was also tested and correctly rejected.
+The fallback model mechanism was also tested successfully.
 
 ---
 
 # 🔐 Environment Variables
 
-Sensitive credentials are stored through environment variables rather than hardcoded into source code.
+Sensitive credentials are stored through environment variables.
 
 Example:
 
@@ -879,37 +825,32 @@ GOOGLE_AI_KEY=your_google_ai_key
 REDIS_URL=your_redis_connection_string
 ```
 
-The `.env` file should never be committed to GitHub.
+**Never commit `.env` files or API keys to GitHub.**
 
 ---
 
-# ⚙️ Running the Project
+# ⚙️ Installation & Setup
 
-## Clone
+## 1. Clone the Repository
 
 ```bash
 git clone https://github.com/AbdulAzeem-10/AI-Coding-Agent.git
+
 cd AI-Coding-Agent
 ```
 
 ---
 
-## Backend
+## 2. Setup Backend
 
 ```bash
 cd backend
 npm install
 ```
 
-Create:
+Create a `.env` file containing the required environment variables.
 
-```text
-.env
-```
-
-with the required environment variables.
-
-Then start the development server:
+Then run:
 
 ```bash
 npm run dev
@@ -917,7 +858,7 @@ npm run dev
 
 ---
 
-## Frontend
+## 3. Setup Frontend
 
 Open another terminal:
 
@@ -933,7 +874,7 @@ The frontend communicates with the backend through the configured API URL.
 
 # 🧪 Development Workflow
 
-The project was developed incrementally rather than as a single implementation.
+The application was developed incrementally:
 
 ```text
 Project Initialization
@@ -960,7 +901,7 @@ Gemini AI
         ↓
 AI Service
         ↓
-AI Routes / Controllers
+AI Routes & Controllers
         ↓
 Model Fallback
         ↓
@@ -969,8 +910,6 @@ Markdown Rendering
 Syntax Highlighting
         ↓
 WebContainers
-        ↓
-Browser Node.js Runtime
         ↓
 Frontend Stabilization
         ↓
@@ -983,19 +922,21 @@ Backend Stabilization
 
 This project demonstrates practical experience with:
 
-* REST API design
-* MVC-style backend organization
+* REST API development
+* MVC architecture
 * Service-layer architecture
-* Authentication and authorization
+* Authentication
+* Authorization
 * JWT
 * Middleware
-* MongoDB/Mongoose
+* MongoDB
+* Mongoose
 * Redis
 * Express.js
 * Node.js
 * Socket.IO
 * Real-time communication
-* WebSocket-based architecture
+* WebSocket architecture
 * Project-based rooms
 * API validation
 * Error handling
@@ -1005,31 +946,30 @@ This project demonstrates practical experience with:
 * React state management
 * Two-way data binding
 * React Router
-* AI API integration
-* Gemini
+* Gemini AI
 * Prompt engineering
-* AI model fallback strategies
+* AI model fallback
 * Structured JSON generation
 * Markdown rendering
 * Syntax highlighting
-* Browser-based Node.js execution
 * WebContainers
-* API testing with Postman
+* Browser-based Node.js execution
+* Postman API testing
 * Git/GitHub workflow
-* Debugging distributed integrations
+* Debugging external integrations
 
 ---
 
-# 📈 What Makes This Project Different
+# 📈 Why This Project Is Different
 
-This isn't simply an application that sends a prompt to an AI API and displays the response.
+This project goes beyond a traditional CRUD application.
 
-The architecture combines multiple systems:
+It combines:
 
 ```text
 AI
 +
-Full-Stack Web Application
+Full-Stack Application
 +
 Real-Time Collaboration
 +
@@ -1040,9 +980,7 @@ Browser-Based Node.js Runtime
 Code Rendering
 ```
 
-The important engineering challenge is connecting these systems reliably.
-
-A generated application can conceptually move through the entire pipeline:
+The complete pipeline is designed around:
 
 ```text
 Developer Prompt
@@ -1064,72 +1002,57 @@ Node.js Runtime
 Application Execution
 ```
 
-This makes the project a foundation for an **AI-powered browser IDE**, rather than a conventional CRUD application.
+This creates the foundation for a **browser-based AI development environment**.
 
 ---
 
 # 🧑‍💻 Engineering Lessons
 
-Throughout development, the project required solving several real-world integration problems:
+The project required solving multiple real-world engineering problems:
 
 * SDK version mismatches
-* API model availability
+* Gemini model availability
 * ESM module resolution
-* Authentication handling
+* JWT authentication
+* Socket authentication
+* Socket.IO room management
+* Redis connectivity
 * CORS configuration
-* WebSocket authentication
-* Socket.IO room isolation
-* Redis connection failures
 * Axios configuration
 * React state synchronization
-* AI API fallback strategies
+* AI model fallback
 * Browser-based runtime integration
 
-These failures were treated as engineering problems rather than simply replacing the affected libraries.
+Rather than simply replacing problematic technologies, each issue was debugged at the integration level.
 
-The final architecture reflects the lessons learned from debugging each integration.
+This resulted in a more reliable understanding of how the individual systems interact.
 
 ---
 
 # 🔮 Future Improvements
 
-Potential future improvements include:
+Planned improvements include:
 
 * Persistent project chat history
 * AI-generated file editing
 * AI-powered code modification
 * Streaming Gemini responses
+* Browser terminal
+* Live application preview
 * Improved WebContainer process management
-* Terminal UI inside the browser
-* Live preview iframe
 * File explorer/editor synchronization
 * Collaborative code editing
 * Role-based project permissions
-* Redis-backed session/caching strategies
-* Production-grade CORS restrictions
+* Redis-backed caching
+* Production-grade CORS configuration
 * Rate limiting
-* API request validation
 * Automated testing
-* CI/CD pipeline
+* CI/CD
 * Docker deployment
-* Production monitoring and logging
-* More robust AI model routing
-* AI-generated debugging and error correction
-
----
-
-# 🎯 Project Goals
-
-The long-term goal is to evolve the project into a complete browser-based AI development environment where developers can:
-
-1. Describe an application in natural language.
-2. Have AI generate the project structure and source code.
-3. Inspect and edit the generated files.
-4. Install dependencies automatically.
-5. Execute the project inside a browser-based Node.js runtime.
-6. Preview the application.
-7. Collaborate with other developers in real time.
-8. Ask the AI to modify or debug the project.
+* Production monitoring
+* Improved AI model routing
+* AI-powered debugging
+* AI-powered error correction
 
 ---
 
@@ -1158,8 +1081,8 @@ The long-term goal is to evolve the project into a complete browser-based AI dev
 * [x] AI routes
 * [x] AI service
 * [x] Structured AI responses
-* [x] Model fallback priority
-* [x] Backend debugging/stabilization
+* [x] AI model fallback
+* [x] Backend debugging and stabilization
 
 ## Frontend
 
@@ -1178,48 +1101,34 @@ The long-term goal is to evolve the project into a complete browser-based AI dev
 * [x] Highlight.js
 * [x] React state management
 * [x] Two-way binding
-* [x] Browser-based Node.js runtime foundation
-* [x] Frontend debugging/stabilization
+* [x] Browser-based Node.js runtime
+* [x] Frontend debugging and stabilization
 
 ---
 
-# ⭐ Key Takeaway
+# 🎯 Project Vision
 
-**AI Coding Agent is a full-stack engineering project focused on building an AI-powered browser development environment.**
+The long-term goal is to evolve this project into a complete AI-powered browser IDE where developers can:
 
-It combines:
-
-```text
-React
-+
-Node.js
-+
-Express
-+
-MongoDB
-+
-Redis
-+
-JWT
-+
-Socket.IO
-+
-Gemini AI
-+
-WebContainers
-```
-
-The project demonstrates not only feature development but also practical experience with **debugging, API integration, authentication, real-time systems, AI reliability, state management, browser-based execution, and architectural separation of concerns.**
+1. Describe an application using natural language.
+2. Generate an entire project using AI.
+3. Inspect and edit generated files.
+4. Install dependencies automatically.
+5. Execute applications directly inside the browser.
+6. Preview generated applications.
+7. Collaborate with other developers in real time.
+8. Ask AI to modify existing code.
+9. Ask AI to debug runtime errors.
+10. Iterate on an application without leaving the browser.
 
 ---
 
 # 👨‍💻 Author
 
-**Abdul Azeem**
+## Abdul Azeem
 
 Computer Science | Software Engineering | Backend & Full-Stack Development
 
 Focused on building scalable backend systems, APIs, real-time applications, and AI-powered developer tools.
 
-```
-```
+````
