@@ -1,4 +1,3 @@
-````markdown
 # 🤖 AI Coding Agent
 
 A full-stack AI-powered coding environment that allows developers to create projects, collaborate in real time, generate code using Google Gemini, render AI-generated Markdown and code with syntax highlighting, and execute Node.js applications directly inside the browser using WebContainers.
