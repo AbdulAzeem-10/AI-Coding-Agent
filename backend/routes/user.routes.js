@@ -23,6 +23,8 @@ router.post('/login',
 //profile controller route
 router.get('/profile', authMiddleware.authUser, userController.profileController);
 
+//get all users route
+router.get('/all', authMiddleware.authUser, userController.getAllUsersController);
 
 //logout route
 router.get('/logout', authMiddleware.authUser, userController.logoutController);
