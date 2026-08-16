@@ -15,6 +15,72 @@ body {
 .message-box{
   scroll-behavior: smooth;
 }
+
 .message-box::-webkit-scrollbar{
-  display: none;
+  width: 6px;
+}
+
+.message-box::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+.message-box::-webkit-scrollbar-thumb{
+  background: #475569;
+  border-radius: 3px;
+}
+
+.message-box::-webkit-scrollbar-thumb:hover{
+  background: #64748b;
+}
+
+/* Code editor scrollbar */
+.code-editor-area::-webkit-scrollbar{
+  width: 8px;
+  height: 8px;
+}
+
+.code-editor-area::-webkit-scrollbar-track{
+  background: #0f172a;
+}
+
+.code-editor-area::-webkit-scrollbar-thumb{
+  background: #475569;
+  border-radius: 4px;
+}
+
+.code-editor-area::-webkit-scrollbar-thumb:hover{
+  background: #64748b;
+}
+
+/* File explorer scrollbar */
+.explorer::-webkit-scrollbar{
+  width: 6px;
+}
+
+.explorer::-webkit-scrollbar-track{
+  background: #1e293b;
+}
+
+.explorer::-webkit-scrollbar-thumb{
+  background: #475569;
+  border-radius: 3px;
+}
+
+.explorer::-webkit-scrollbar-thumb:hover{
+  background: #64748b;
+}
+
+/* Syntax highlighting theme adjustments */
+.hljs{
+  background: #0f172a !important;
+  color: #e2e8f0;
+}
+
+/* Loading animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
 }

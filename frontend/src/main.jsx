@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import 'remixicon/fonts/remixicon.css'
+import 'highlight.js/styles/atom-one-dark.css'
 
 import App from './App.jsx'
 
